@@ -51,11 +51,11 @@ def execute_query(connection, query):
         print("Error occurred while executing query:", error)
         return None
 
-def insert_data(connection, data):
+def insert_data(connection,query, data):
     try:
         cursor = connection.cursor()
-        # Assuming data is a tuple or list of values to be inserted
-        cursor.execute("INSERT INTO your_table_name (column1, column2, ...) VALUES (?, ?, ...)", data)
+
+        cursor.execute(query, data)
         connection.commit()
         cursor.close()
         print("Data inserted successfully!")

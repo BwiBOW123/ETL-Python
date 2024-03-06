@@ -39,8 +39,7 @@ def read_item_table(dynamodb,tableName):
     try:
         table = dynamodb.Table(tableName)
         response = table.scan()
-        for item in response['Items']:
-            print(item)
+        return response['Items']
     except Exception as e:
         print("Error scanning table:", e)
         return None
